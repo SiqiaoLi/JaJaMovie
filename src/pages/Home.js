@@ -32,11 +32,46 @@ const Home = () => {
           />
         ))}
       </Movies>
+      <h2>Now Playing Movies</h2>
+      <Movies>
+        {nowPlaying.map((movie) => (
+          <Movie
+            title={movie.title}
+            released={movie.release_date}
+            posterPath={movie.poster_path}
+            id={movie.id}
+            key={movie.id}
+          />
+        ))}
+      </Movies>
+      <h2>Popular Movies</h2>
+      <Movies>
+        {popular.map((movie) => (
+          <Movie
+            title={movie.title}
+            released={movie.release_date}
+            posterPath={movie.poster_path}
+            id={movie.id}
+            key={movie.id}
+          />
+        ))}
+      </Movies>
     </MovieList>
   );
 };
 
-const MovieList = styled(motion.div)``;
-const Movies = styled(motion.div)``;
+const MovieList = styled(motion.div)`
+  padding: 0rem 5rem;
+  h2 {
+    padding: 5rem 0rem;
+  }
+`;
+const Movies = styled(motion.div)`
+  min-height: 80vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-column-gap: 2rem;
+  grid-row-gap: 4rem;
+`;
 
 export default Home;
