@@ -2,11 +2,17 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadMovies } from "../actions/moviesAction";
 import Movie from "../components/Movie";
+import MovieDetail from "../components/MovieDetail";
 
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
+  // get the current location
+  const location = useLocation();
+  const pathId = location.pathname.split("/")[2];
+
   // Fetch movies
   const dispatch = useDispatch();
   useEffect(() => {
@@ -20,6 +26,7 @@ const Home = () => {
 
   return (
     <MovieList>
+      {pathId && <MovieDetail />}
       <h2>Upcoming Movies</h2>
       <Movies>
         {upcoming.map((movie) => (

@@ -2,15 +2,26 @@ import React from "react";
 import { poster_url } from "../api";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { loadDetail } from "../actions/detailAction";
+import { Link } from "react-router-dom";
 
 const Movie = ({ title, released, id, posterPath }) => {
   const poster = `${poster_url()}${posterPath}`;
 
+  const dispatch = useDispatch();
+  const loadDetailHandler = () => {
+    document.body.style.overflow = "hidden";
+    dispatch(loadDetail(id));
+  };
+
   return (
-    <StyledMovie>
-      <img src={poster} alt="poster" />
-      <h3>{title}</h3>
-      <p>{released}</p>
+    <StyledMovie onClick={loadDetailHandler}>
+      <Link to={`/movie/${id}`}>
+        <img src={poster} alt="poster" />
+        <h3>{title}</h3>
+        <p>{released}</p>
+      </Link>
     </StyledMovie>
   );
 };

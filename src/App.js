@@ -1,13 +1,15 @@
 import React from "react";
 import Home from "./pages/Home";
 import GlobalStyles from "./components/GlobalStyles";
+import { Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <GlobalStyles />
-      <h1>JaJaTao</h1>
-      <Home />
+      <Route path={["/movie/:id", "/"]}>
+        <Home />
+      </Route>
     </div>
   );
 }

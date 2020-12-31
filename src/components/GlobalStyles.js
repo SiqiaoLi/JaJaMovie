@@ -33,7 +33,7 @@ const GlobalStyles = createGlobalStyle`
     padding: 1.5rem 0rem;
   }
   p{
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height:200%;
     color: #696969;
   }
