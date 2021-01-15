@@ -32,6 +32,9 @@ const GlobalStyles = createGlobalStyle`
     color: #333;
     padding: 1.5rem 0rem;
   }
+  h4 {
+    padding-top: 1.5rem;
+  }
   p{
     font-size: 1.1rem;
     line-height:200%;

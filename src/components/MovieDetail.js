@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { poster_url } from "../api";
 
 const MovieDetail = () => {
   const history = useHistory();
@@ -16,28 +17,42 @@ const MovieDetail = () => {
     }
   };
 
-  const { movie, isLoading } = useSelector((state) => state.detail);
+  const { movie, backdrops, isLoading } = useSelector((state) => state.detail);
+
   return (
     <>
       {!isLoading && (
         <CardShadow className="shadow" onClick={exitDetailHandler}>
           <Detail>
             <Stats>
-              <div className="rating">
-                <h3>{movie.title}</h3>
-                <p>Rating: {movie.vote_average}</p>
-              </div>
+              <Image>
+                <img
+                  src={`${poster_url()}${movie.poster_path}`}
+                  alt={movie.title}
+                />
+              </Image>
               <Info>
-                <div className="genres">
-                  {movie.genres.map((data) => (
-                    <h3 key={data.id}>{data.name}</h3>
-                  ))}
+                <div className="rating">
+                  <h3>{`${movie.title}(${movie.release_date})`}</h3>
+                  <h4>Rating</h4>
+                  <p>{movie.vote_average}</p>
                 </div>
+                <h4>Genres</h4>
+                <Genres>
+                  {movie.genres.map((data) => (
+                    <p key={data.id}>{data.name}</p>
+                  ))}
+                </Genres>
                 <div className="overview">
-                  <h3>Overview</h3>
+                  <h4>Overview</h4>
                   <p>{movie.overview}</p>
                 </div>
               </Info>
+              <div className="backdrops">
+                {/* {backdrops.backdrops.map((data) => (
+                  <img src={} />
+                ))} */}
+              </div>
             </Stats>
           </Detail>
         </CardShadow>
@@ -54,26 +69,58 @@ const CardShadow = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 5;
+
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #ff7676;
+  }
+  &::-webkit-scrollbar-track {
+    background: white;
+  }
 `;
 
 const Detail = styled(motion.div)`
   width: 80%;
-  border-radius: 1rem;
-  padding: 2rem 20rem;
+  border-radius: 0.5rem;
+  padding: 2rem 4rem;
   background: white;
   position: absolute;
   left: 10%;
   color: black;
+  z-index: 10;
 `;
 
 const Stats = styled(motion.div)`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
+  justify-content: flex-start;
 `;
 
 const Info = styled(motion.div)`
-  text-align: center;
+  padding: 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`;
+
+const Image = styled(motion.div)`
+  margin-top: 3rem;
+  img {
+    width: 35vh;
+    height: 50vh;
+    object-fit: cover;
+  }
+`;
+
+const Genres = styled(motion.div)`
+  display: flex;
+  justify-content: space-between;
+  p {
+    margin-right: 1rem;
+  }
 `;
 
 export default MovieDetail;

@@ -1,4 +1,4 @@
-const initialState = { movie: {}, isLoading: true };
+const initialState = { movie: {}, backdrops: {}, isLoading: true };
 
 const detailReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -6,6 +6,7 @@ const detailReducer = (state = initialState, action) => {
       return {
         ...state,
         movie: action.payload.movie,
+        backdrops: action.payload.backdrops,
         isLoading: false,
       };
     case "LOADING_DETAIL":

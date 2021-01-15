@@ -38,6 +38,9 @@ const StyledMovie = styled(motion.div)`
     height: 50vh;
     object-fit: cover;
   }
+  p {
+    padding-bottom: 0.5rem;
+  }
 `;
 
 export default Movie;
