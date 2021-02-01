@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { poster_url } from "../api";
+import { poster_url, backdrops_url } from "../api";
 
 const MovieDetail = () => {
   const history = useHistory();
@@ -33,7 +33,7 @@ const MovieDetail = () => {
               </Image>
               <Info>
                 <div className="rating">
-                  <h3>{`${movie.title}(${movie.release_date})`}</h3>
+                  <h3>{`${movie.title} (${movie.release_date})`}</h3>
                   <h4>Rating</h4>
                   <p>{movie.vote_average}</p>
                 </div>
@@ -48,12 +48,13 @@ const MovieDetail = () => {
                   <p>{movie.overview}</p>
                 </div>
               </Info>
-              <div className="backdrops">
-                {/* {backdrops.backdrops.map((data) => (
-                  <img src={} />
-                ))} */}
-              </div>
             </Stats>
+            <h4>Backdrops</h4>
+            <Backdrops>
+              {backdrops.backdrops.map((data) => (
+                <img src={`${backdrops_url()}${data.file_path}`} />
+              ))}
+            </Backdrops>
           </Detail>
         </CardShadow>
       )}
@@ -97,10 +98,12 @@ const Stats = styled(motion.div)`
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid grey;
 `;
 
 const Info = styled(motion.div)`
-  padding: 1.5rem 3rem;
+  padding: 1.5rem 3rem 0rem 3rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -109,6 +112,7 @@ const Info = styled(motion.div)`
 const Image = styled(motion.div)`
   margin-top: 3rem;
   img {
+    border-radius: 0.4rem;
     width: 35vh;
     height: 50vh;
     object-fit: cover;
@@ -120,6 +124,19 @@ const Genres = styled(motion.div)`
   justify-content: space-between;
   p {
     margin-right: 1rem;
+  }
+`;
+
+const Backdrops = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  img {
+    width: 100vh;
+    object-fit: cover;
+    padding: 0.5rem 0rem;
   }
 `;
 
