@@ -41,6 +41,9 @@ const StyledMovie = styled(motion.div)`
   p {
     padding-bottom: 0.5rem;
   }
+  h3 {
+    padding: 1rem;
+  }
 `;
 
 export default Movie;

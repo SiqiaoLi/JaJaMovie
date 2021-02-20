@@ -51,6 +51,17 @@ const GlobalStyles = createGlobalStyle`
     font-weight: bold;
     font-family: 'Monserrat', sans-serif;
   }
+
+  .App {
+    position: relative;
+    min-height: 100vh;
+  }
+
+  .content-wrap{
+    padding-bottom: 6rem;
+  }
+
+
 `;
 
 export default GlobalStyles;

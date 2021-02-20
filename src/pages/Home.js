@@ -68,9 +68,10 @@ const Home = () => {
 };
 
 const MovieList = styled(motion.div)`
-  padding: 0rem 5rem;
+  padding: 4rem 5rem;
   h2 {
-    padding: 5rem 0rem;
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
   }
 `;
 const Movies = styled(motion.div)`
