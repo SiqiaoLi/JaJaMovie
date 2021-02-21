@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.js": "/JaJaMovie/static/js/main.bfc2c980.chunk.js",
-    "main.js.map": "/JaJaMovie/static/js/main.bfc2c980.chunk.js.map",
+    "main.js": "/JaJaMovie/static/js/main.12421fa3.chunk.js",
+    "main.js.map": "/JaJaMovie/static/js/main.12421fa3.chunk.js.map",
     "runtime-main.js": "/JaJaMovie/static/js/runtime-main.777105da.js",
     "runtime-main.js.map": "/JaJaMovie/static/js/runtime-main.777105da.js.map",
-    "static/js/2.7df8245e.chunk.js": "/JaJaMovie/static/js/2.7df8245e.chunk.js",
-    "static/js/2.7df8245e.chunk.js.map": "/JaJaMovie/static/js/2.7df8245e.chunk.js.map",
+    "static/js/2.3c1ca200.chunk.js": "/JaJaMovie/static/js/2.3c1ca200.chunk.js",
+    "static/js/2.3c1ca200.chunk.js.map": "/JaJaMovie/static/js/2.3c1ca200.chunk.js.map",
     "static/js/3.32d5648b.chunk.js": "/JaJaMovie/static/js/3.32d5648b.chunk.js",
     "static/js/3.32d5648b.chunk.js.map": "/JaJaMovie/static/js/3.32d5648b.chunk.js.map",
     "index.html": "/JaJaMovie/index.html",
-    "static/js/2.7df8245e.chunk.js.LICENSE.txt": "/JaJaMovie/static/js/2.7df8245e.chunk.js.LICENSE.txt"
+    "static/js/2.3c1ca200.chunk.js.LICENSE.txt": "/JaJaMovie/static/js/2.3c1ca200.chunk.js.LICENSE.txt",
+    "static/media/tmdb.bb8aa703.svg": "/JaJaMovie/static/media/tmdb.bb8aa703.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.777105da.js",
-    "static/js/2.7df8245e.chunk.js",
-    "static/js/main.bfc2c980.chunk.js"
+    "static/js/2.3c1ca200.chunk.js",
+    "static/js/main.12421fa3.chunk.js"
   ]
 }
