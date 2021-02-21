@@ -1,15 +1,14 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { loadMovies } from "../actions/moviesAction";
+import { useSelector, useDispatch } from "react-redux";
 import Movie from "../components/Movie";
 import MovieDetail from "../components/MovieDetail";
-
+import { loadMovies } from "../actions/moviesAction";
+import { useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import ScrollTop from "../components/ScrollTop";
 
-const Home = () => {
+const Popular = () => {
   // get the current location
   const location = useLocation();
   const pathId = location.pathname.split("/")[3];
@@ -21,15 +20,14 @@ const Home = () => {
   }, [dispatch]);
 
   // get the data
-  const { upcoming } = useSelector((state) => state.movies);
+  const { popular } = useSelector((state) => state.movies);
 
   return (
     <MovieList>
       {pathId && <MovieDetail />}
-
-      <h2>Upcoming Movies</h2>
+      <h2>Popular Movies</h2>
       <Movies>
-        {upcoming.map((movie) => (
+        {popular.map((movie) => (
           <Movie
             title={movie.title}
             released={movie.release_date}
@@ -51,6 +49,7 @@ const MovieList = styled(motion.div)`
     padding-bottom: 1.5rem;
   }
 `;
+
 const Movies = styled(motion.div)`
   min-height: 80vh;
   display: grid;
@@ -59,4 +58,4 @@ const Movies = styled(motion.div)`
   grid-row-gap: 4rem;
 `;
 
-export default Home;
+export default Popular;

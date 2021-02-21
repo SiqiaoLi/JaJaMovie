@@ -8,15 +8,16 @@ import { poster_url, backdrops_url } from "../api";
 const MovieDetail = () => {
   const history = useHistory();
 
+  const currentList = useSelector((state) => state.list);
+  const { movie, backdrops, isLoading } = useSelector((state) => state.detail);
+
   const exitDetailHandler = (e) => {
     const element = e.target;
     if (element.classList.contains("shadow")) {
       document.body.style.overflow = "auto";
-      history.push("/");
+      history.push(`/${currentList}`);
     }
   };
-
-  const { movie, backdrops, isLoading } = useSelector((state) => state.detail);
 
   return (
     <>

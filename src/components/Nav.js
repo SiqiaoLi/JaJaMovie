@@ -2,39 +2,69 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
+import { selectList } from "../actions/navAction";
+import { useDispatch } from "react-redux";
 
 const Nav = () => {
+  const dispatch = useDispatch();
+
   const { pathname } = useLocation();
+  const list = pathname.split("/")[1];
+
   return (
     <StyledNav>
       <h1>
-        <Link id="logo" to="/">
-          JaJa
-        </Link>
+        <Link to="/">JaJa</Link>
       </h1>
       <ul>
         <li>
-          <Link to="/">About Us</Link>
+          <Link
+            to="/upcoming"
+            onClick={() => {
+              dispatch(selectList("upcoming"));
+            }}
+          >
+            Upcoming
+          </Link>
           <Line
             transition={{ duration: 0.75 }}
             initial={{ width: "0%" }}
-            animate={{ width: pathname === "/" ? "50%" : "0%" }}
+            animate={{
+              width:
+                list === "" || list === "JaJaMovie" || list === "upcoming"
+                  ? "50%"
+                  : "0%",
+            }}
           />
         </li>
         <li>
-          <Link to="/work">Our Work</Link>
+          <Link
+            to="/nowplaying"
+            onClick={() => {
+              dispatch(selectList("nowplaying"));
+            }}
+          >
+            Now Playing
+          </Link>
           <Line
             transition={{ duration: 0.75 }}
             initial={{ width: "0%" }}
-            animate={{ width: pathname === "/work" ? "50%" : "0%" }}
+            animate={{ width: list === "nowplaying" ? "50%" : "0%" }}
           />
         </li>
         <li>
-          <Link to="/contact">Contact Us</Link>
+          <Link
+            to="/popular"
+            onClick={() => {
+              dispatch(selectList("popular"));
+            }}
+          >
+            Popular
+          </Link>
           <Line
             transition={{ duration: 0.75 }}
             initial={{ width: "0%" }}
-            animate={{ width: pathname === "/contact" ? "50%" : "0%" }}
+            animate={{ width: list === "popular" ? "50%" : "0%" }}
           />
         </li>
       </ul>
@@ -49,9 +79,13 @@ const StyledNav = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 10rem;
-  background: #282828;
+  background: #0d253f;
   position: sticky;
   top: 0;
+
+  h1 {
+    font-family: "Montserrat", sans-serif;
+  }
 
   a {
     color: white;
@@ -94,7 +128,7 @@ const Line = styled(motion.div)`
   width: 0%;
   position: absolute;
   bottom: -80%;
-  left: 60%;
+  left: 55%;
   @media (max-width: 1300px) {
     left: 0%;
   }

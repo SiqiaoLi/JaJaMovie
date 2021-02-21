@@ -6,6 +6,7 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing:border-box;
   }
+
   
   body {
     font-family: 'Montserrat', sans-serif;
