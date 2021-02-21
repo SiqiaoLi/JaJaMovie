@@ -50,8 +50,12 @@ const MovieDetail = () => {
             </Stats>
             <h4>Backdrops</h4>
             <Backdrops>
-              {backdrops.backdrops.map((data) => (
-                <img src={`${backdrops_url()}${data.file_path}`} />
+              {backdrops.backdrops.map((data, index) => (
+                <img
+                  src={`${backdrops_url()}${data.file_path}`}
+                  key={index}
+                  alt="img"
+                />
               ))}
             </Backdrops>
           </Detail>
@@ -99,6 +103,7 @@ const Stats = styled(motion.div)`
   justify-content: flex-start;
   padding-bottom: 2rem;
   border-bottom: 2px solid grey;
+  overflow: auto;
 `;
 
 const Info = styled(motion.div)`
@@ -133,7 +138,7 @@ const Backdrops = styled(motion.div)`
   align-items: center;
 
   img {
-    width: 100vh;
+    width: 100%;
     object-fit: cover;
     padding: 0.5rem 0rem;
   }
