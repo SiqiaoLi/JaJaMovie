@@ -6,7 +6,9 @@ export const loadDetail = (id) => async (dispatch) => {
     type: "LOADING_DETAIL",
   });
 
-  const detailData = await axios.get(movieDetailsURL(id));
+  const detailData = await axios
+    .get(movieDetailsURL(id))
+    .catch((error) => console.log(error));
   const movieBackdropsData = await axios.get(movieBackdropsURL(id));
 
   dispatch({

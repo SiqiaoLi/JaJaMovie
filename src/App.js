@@ -20,10 +20,10 @@ function App() {
           <Route path={["/JaJaMovie", "/upcoming"]}>
             <Home />
           </Route>
-          <Route path={["/movie/:id", "/nowplaying"]}>
+          <Route path="/nowplaying">
             <NowPlaying />
           </Route>
-          <Route path={["/movie/:id", "/popular"]}>
+          <Route path="/popular">
             <Popular />
           </Route>
         </Switch>
