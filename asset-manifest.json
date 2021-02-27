@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/JaJaMovie/static/js/main.12421fa3.chunk.js",
-    "main.js.map": "/JaJaMovie/static/js/main.12421fa3.chunk.js.map",
+    "main.js": "/JaJaMovie/static/js/main.569d644b.chunk.js",
+    "main.js.map": "/JaJaMovie/static/js/main.569d644b.chunk.js.map",
     "runtime-main.js": "/JaJaMovie/static/js/runtime-main.777105da.js",
     "runtime-main.js.map": "/JaJaMovie/static/js/runtime-main.777105da.js.map",
     "static/js/2.3c1ca200.chunk.js": "/JaJaMovie/static/js/2.3c1ca200.chunk.js",
@@ -15,6 +15,6 @@
   "entrypoints": [
     "static/js/runtime-main.777105da.js",
     "static/js/2.3c1ca200.chunk.js",
-    "static/js/main.12421fa3.chunk.js"
+    "static/js/main.569d644b.chunk.js"
   ]
 }
