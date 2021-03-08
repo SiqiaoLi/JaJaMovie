@@ -3,6 +3,7 @@ const initState = {
   nowPlaying: [],
   upcoming: [],
   searched: [],
+  error: null,
 };
 
 const movieReducer = (state = initState, action) => {
@@ -13,6 +14,12 @@ const movieReducer = (state = initState, action) => {
         upcoming: action.payload.upcoming,
         popular: action.payload.popular,
         nowPlaying: action.payload.nowPlaying,
+        error: null,
+      };
+    case "FETCH_ERROR":
+      return {
+        ...state,
+        error: action.error,
       };
     default:
       return { ...state };

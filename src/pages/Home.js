@@ -22,12 +22,14 @@ const Home = () => {
 
   // get the data
   const { upcoming } = useSelector((state) => state.movies);
+  const errorMessage = useSelector((state) => state.movies.error);
 
   return (
     <MovieList>
       {pathId && <MovieDetail />}
 
       <h2>Upcoming Movies</h2>
+      {errorMessage && <p>Sorry, there was an error</p>}
       <Movies>
         {upcoming.map((movie) => (
           <Movie
